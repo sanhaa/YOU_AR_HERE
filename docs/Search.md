@@ -29,7 +29,8 @@
 1. 하드웨어 기기에서 실행 [문서](https://developer.android.com/studio/run/device?hl=ko)
 2. 에뮬레이터에서 AR앱 실행 [문서]()
 
-
+### 3. 즉석 배치 사용
+- ARCore가 표면을 감지하기 전에 AR 개체 배치 가능
 
 <br>
 --- 
