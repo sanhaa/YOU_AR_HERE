@@ -25,8 +25,9 @@
 - 안드로이드 SDK 플랫폼 버전 7.0 (API 레벨 24) 이상, 버전 3.1 이상
 
 ### 2. 샘플 프로젝트 열기
-- 하드웨어 기기에서 실행 [문서](https://developer.android.com/studio/run/device?hl=ko)
-
+- samples/hello_ar_kotlin 열기
+1. 하드웨어 기기에서 실행 [문서](https://developer.android.com/studio/run/device?hl=ko)
+2. 에뮬레이터에서 AR앱 실행 [문서]()
 
 
 
