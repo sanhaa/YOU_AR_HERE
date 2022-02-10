@@ -33,7 +33,7 @@ class MainFragment :  Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         sceneView = view.findViewById(R.id.sceneView)
-        sceneView.onTouchAr = { hitResult, motionEvent ->
+        sceneView.onTouchAr = { hitResult, _ ->
             anchorOrMove(hitResult.createAnchor())
         }
         loadingView = view.findViewById(R.id.loadingView)
@@ -53,11 +53,10 @@ class MainFragment :  Fragment(R.layout.fragment_main) {
             }
         }
         sceneView.addChild(cursorNode)
-
     }
 
     fun anchorOrMove(anchor: Anchor) {
-        if (modelNode == null){
+        if (modelNode == null) {
             isLoading = true
             modelNode = ArNode(
                 context = requireContext(),
@@ -70,7 +69,7 @@ class MainFragment :  Fragment(R.layout.fragment_main) {
                     isLoading = false
                 })
             sceneView.addChild(modelNode!!)
-        } else{
+        } else {
             modelNode!!.anchor = anchor
         }
     }

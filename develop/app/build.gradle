@@ -43,5 +43,6 @@ dependencies {
 
     // SceneView
     implementation 'io.github.sceneview:arsceneview:0.0.3'
+    implementation 'io.github.sceneview:sceneview:0.0.3'
 
 }
