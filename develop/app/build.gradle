@@ -50,5 +50,9 @@ dependencies {
     // sceneform
 //    api project(":sceneformux")
 //    api project(":sceneform")
-    implementation "com.gorisse.thomas.sceneform:sceneform:1.20.4"
+//    implementation "com.gorisse.thomas.sceneform:sceneform:1.20.4"
+
+    // sceneview
+    implementation 'io.github.sceneview:arsceneview:0.0.3'
+
 }

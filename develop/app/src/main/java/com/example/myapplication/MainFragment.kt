@@ -2,81 +2,93 @@ package com.example.myapplication
 
 import android.net.Uri
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.View
-import android.widget.Toast
+import android.view.*
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.google.ar.core.HitResult
-import com.google.ar.core.Plane
-import com.google.ar.sceneform.AnchorNode
-import com.google.ar.sceneform.Node
-import com.google.ar.sceneform.SceneView
-import com.google.ar.sceneform.math.Vector3
-import com.google.ar.sceneform.rendering.ModelRenderable
-import com.google.ar.sceneform.rendering.Renderable
-import com.google.ar.sceneform.rendering.ViewRenderable
-import com.google.ar.sceneform.ux.ArFragment
-import com.google.ar.sceneform.ux.TransformableNode
-import com.gorisse.thomas.sceneform.scene.await
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import io.github.sceneview.ar.ArSceneView
+import io.github.sceneview.ar.node.DepthNode
+import io.github.sceneview.utils.doOnApplyWindowInsets
 
 class MainFragment : Fragment(R.layout.fragment_main) {
+    lateinit var sceneView: ArSceneView
+    lateinit var loadingView: View
+    lateinit var actionButton: ExtendedFloatingActionButton
 
-    private lateinit var arFragment: ArFragment
-    private val arSceneView get() = arFragment.arSceneView
-    private val scene get() = arSceneView.scene
+    lateinit var depthNode: DepthNode
 
-    private var model: Renderable? = null
-    private var modelView: ViewRenderable? = null
+    var isLoading = false
+        set(value) {
+            field = value
+            loadingView.isGone = !value
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
-            setOnSessionConfigurationListener { session, config ->
-                // Modify the AR session configuration here
+        setHasOptionsMenu(true)
+
+        sceneView = view.findViewById(R.id.sceneView)
+        loadingView = view.findViewById(R.id.loadingView)
+        actionButton = view.findViewById<ExtendedFloatingActionButton>(R.id.actionButton).apply {
+            // Add system bar margins
+            val bottomMargin = (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin
+            doOnApplyWindowInsets { systemBarsInsets ->
+                (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin =
+                    systemBarsInsets.bottom + bottomMargin
             }
-            setOnViewCreatedListener { arSceneView ->
-                arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL)
-            }
-            setOnTapArPlaneListener(::onTapPlane)
+            setOnClickListener(::actionButtonClicked)
         }
 
-        lifecycleScope.launchWhenCreated {
-            loadModels()
+        isLoading = true
+        depthNode = DepthNode(
+            context = requireContext(),
+            coroutineScope = lifecycleScope,
+            modelGlbFileLocation = "models/halloween.glb",
+            onModelLoaded = { modelInstance ->
+                isLoading = false
+                modelInstance.animate(true).start()
+            }).apply {
+            // This 3D model is actually body centered so we place it centerY on the bottom
+            // (centerY on his feet)
+            // We could also had changed the positionY in order to make it AR placed downer on the
+            // screen instead of the screen center.
+//            centerY = -1.0f
+            onTrackingChanged = { _, isTracking ->
+                actionButton.isGone = !isTracking
+            }
+            sceneView.addChild(this)
         }
     }
 
-    private suspend fun loadModels() {
-        model = ModelRenderable.builder()
-            .setSource(context, Uri.parse("models/halloween.glb"))
-            .setIsFilamentGltf(true)
-            .await()
-        modelView = ViewRenderable.builder()
-            .setView(context, R.layout.view_renderable_infos)
-            .await()
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_main, menu)
     }
 
-    private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
-        if (model == null || modelView == null) {
-            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
-            return
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menuInstantPlacement -> {
+                item.isChecked = !item.isChecked
+                true
+            }
+            R.id.menuDepthPlacement -> {
+                item.isChecked = !item.isChecked
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
+    }
 
-        // Create the Anchor.
-        scene.addChild(AnchorNode(hitResult.createAnchor()).apply {
-            // Create the transformable model and add it to the anchor.
-            addChild(TransformableNode(arFragment.transformationSystem).apply {
-                renderable = model
-                renderableInstance.animate(true).start()
-                // Add the View
-                addChild(Node().apply {
-                    // Define the relative position
-                    localPosition = Vector3(0.0f, 1f, 0.0f)
-                    localScale = Vector3(0.7f, 0.7f, 0.7f)
-                    renderable = modelView
-                })
-            })
-        })
+    fun actionButtonClicked(view: View? = null) {
+        if (!depthNode.isAnchored && depthNode.anchor()) {
+            actionButton.text = getString(R.string.move_object)
+            actionButton.icon = resources.getDrawable(R.drawable.ic_target)
+        } else {
+            depthNode.anchor = null
+            actionButton.text = getString(R.string.place_object)
+            actionButton.icon = resources.getDrawable(R.drawable.ic_anchor)
+        }
     }
 }
