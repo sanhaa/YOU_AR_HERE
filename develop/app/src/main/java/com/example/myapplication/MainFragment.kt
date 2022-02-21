@@ -1,76 +1,82 @@
 package com.example.myapplication
 
+import android.net.Uri
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.isGone
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.ar.core.Anchor
-import io.github.sceneview.ar.ArSceneView
-import io.github.sceneview.ar.node.ArNode
-import io.github.sceneview.ar.node.CursorNode
-import io.github.sceneview.utils.doOnApplyWindowInsets
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
+import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Node
+import com.google.ar.sceneform.SceneView
+import com.google.ar.sceneform.math.Vector3
+import com.google.ar.sceneform.rendering.ModelRenderable
+import com.google.ar.sceneform.rendering.Renderable
+import com.google.ar.sceneform.rendering.ViewRenderable
+import com.google.ar.sceneform.ux.ArFragment
+import com.google.ar.sceneform.ux.TransformableNode
+import com.gorisse.thomas.sceneform.scene.await
 
-class MainFragment :  Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
-    lateinit var sceneView: ArSceneView
-    lateinit var loadingView: View
-    lateinit var actionButton: ExtendedFloatingActionButton
+    private lateinit var arFragment: ArFragment
+    private val arSceneView get() = arFragment.arSceneView
+    private val scene get() = arSceneView.scene
 
-    lateinit var cursorNode: CursorNode
-    var modelNode: ArNode? = null
-
-    var isLoading = false
-        set(value){
-            field = value
-            loadingView.isGone = !value
-            actionButton.isGone = value
-        }
+    private var model: Renderable? = null
+    private var modelView: ViewRenderable? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sceneView = view.findViewById(R.id.sceneView)
-        sceneView.onTouchAr = { hitResult, _ ->
-            anchorOrMove(hitResult.createAnchor())
-        }
-        loadingView = view.findViewById(R.id.loadingView)
-        actionButton = view.findViewById<ExtendedFloatingActionButton>(R.id.actionButton).apply {
-            val bottomMargin = (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin
-            doOnApplyWindowInsets { systemBarsInsets ->
-                (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin =
-                    systemBarsInsets.bottom + bottomMargin
+        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
+            setOnSessionConfigurationListener { session, config ->
+                // Modify the AR session configuration here
             }
-            setOnClickListener {cursorNode.createAnchor()?.let { anchorOrMove(it) } }
+            setOnViewCreatedListener { arSceneView ->
+                arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL)
+            }
+            setOnTapArPlaneListener(::onTapPlane)
         }
 
-        cursorNode = CursorNode(context = requireContext(), coroutineScope = lifecycleScope)
-        cursorNode.onTrackingChanged = {_, isTracking ->
-            if(!isLoading){
-                actionButton.isGone = !isTracking
-            }
+        lifecycleScope.launchWhenCreated {
+            loadModels()
         }
-        sceneView.addChild(cursorNode)
     }
 
-    fun anchorOrMove(anchor: Anchor) {
-        if (modelNode == null) {
-            isLoading = true
-            modelNode = ArNode(
-                context = requireContext(),
-                coroutineScope = lifecycleScope,
-                anchor = anchor,
-                modelGlbFileLocation = "models/spiderbot.glb",
-                onModelLoaded = {
-                    actionButton.text = getString(R.string.move_object)
-                    actionButton.icon = resources.getDrawable(R.drawable.ic_target)
-                    isLoading = false
-                })
-            sceneView.addChild(modelNode!!)
-        } else {
-            modelNode!!.anchor = anchor
+    private suspend fun loadModels() {
+        model = ModelRenderable.builder()
+            .setSource(context, Uri.parse("models/halloween.glb"))
+            .setIsFilamentGltf(true)
+            .await()
+        modelView = ViewRenderable.builder()
+            .setView(context, R.layout.view_renderable_infos)
+            .await()
+    }
+
+    private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
+        if (model == null || modelView == null) {
+            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        // Create the Anchor.
+        scene.addChild(AnchorNode(hitResult.createAnchor()).apply {
+            // Create the transformable model and add it to the anchor.
+            addChild(TransformableNode(arFragment.transformationSystem).apply {
+                renderable = model
+                renderableInstance.animate(true).start()
+                // Add the View
+                addChild(Node().apply {
+                    // Define the relative position
+                    localPosition = Vector3(0.0f, 1f, 0.0f)
+                    localScale = Vector3(0.7f, 0.7f, 0.7f)
+                    renderable = modelView
+                })
+            })
+        })
     }
 }
