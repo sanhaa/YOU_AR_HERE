@@ -18,15 +18,15 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/actionButton"
-        android:layout_width="0dp"
+        android:layout_width="58dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/translucent"
         android:gravity="center_vertical|left"
         android:text="@string/place_object"
-        android:visibility="gone"
         android:textColor="@android:color/white"
+        android:visibility="gone"
         app:icon="@drawable/ic_anchor"
         app:iconGravity="textStart"
         app:iconTint="@android:color/white"
