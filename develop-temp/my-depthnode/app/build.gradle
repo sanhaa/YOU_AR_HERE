@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdk 24
+        minSdkVersion 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -48,8 +48,14 @@ dependencies {
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Sceneview for 3D and ARCore
-    implementation 'io.github.sceneview:arsceneview:0.0.3'
+//    implementation 'io.github.sceneview:arsceneview:0.0.3'
+
+    // sceneform dependency
+    implementation "com.gorisse.thomas.sceneform:sceneform:1.20.5"
 
     // Material
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
 }
