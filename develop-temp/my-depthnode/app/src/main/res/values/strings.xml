@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">My app - depthnode</string>
     <string name="place_object">Place object</string>
     <string name="move_object">Move object</string>
     <string name="instant_placement">Instant Placement</string>
