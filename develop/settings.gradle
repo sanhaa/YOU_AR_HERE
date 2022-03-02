@@ -3,8 +3,16 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+//        maven { url 'https://jitpack.io' }
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "My Application"
 include ':app'
+
+// sceneform
+//include ':sceneform'
+//project(':sceneform').projectDir=new File('sceneformsrc/sceneform')
+//
+//include ':sceneformux'
+//project(':sceneformux').projectDir=new File('sceneformux/ux')
