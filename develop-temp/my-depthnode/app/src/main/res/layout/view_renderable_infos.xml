@@ -4,17 +4,18 @@
     android:background="#14000000"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/halloween" />
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/halloween" />-->
 
     <TextView
+        android:id="@+id/messageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Halloween is a celebration observed in many countries on 31 October"
+        android:text="This Place is so beautiful"
         android:textColor="@android:color/white" />
 </LinearLayout>
