@@ -30,8 +30,6 @@ class InputFragment : Fragment(R.layout.fragment_input2) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("Fragment", "onCreate ");
-
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -62,7 +60,7 @@ class InputFragment : Fragment(R.layout.fragment_input2) {
             confirmBtn.setOnClickListener {
                 // result API를 사용하여 fragment 간 데이터 전달하기
                 val result = et.text.toString()
-                Log.i("InputFragment", "InputFragment onViewCreated - send result $result");
+                Log.d("SANHA", "InputFragment onViewCreated - send result $result");
                 setFragmentResult("requestKey", bundleOf("bundleKey" to result))
                 // result 보내고 난 후 fragment 닫기
                 parentFragmentManager.beginTransaction()
@@ -71,7 +69,7 @@ class InputFragment : Fragment(R.layout.fragment_input2) {
             }
         }
         else{
-            Log.i("InputFragment", "confirmBtn is null ");
+            Log.d("SANHA", "InputFragment - confirmBtn is null");
         }
 
         val cancleBtn: ImageButton = view.findViewById(R.id.cancleButton)

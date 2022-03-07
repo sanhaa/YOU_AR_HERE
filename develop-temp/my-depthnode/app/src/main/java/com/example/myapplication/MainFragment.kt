@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -29,6 +30,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private var model: Renderable? = null
     private var modelView: ViewRenderable? = null
 
+    private var result: String = "" // input Fragment에서 받은 값
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,9 +41,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             "requestKey", this
         ) { key, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported
-            val result = bundle.getString("bundleKey")
+            result = bundle.getString("bundleKey")!!
             // Do something with the result...
-            Log.i("MainFragment", "onCreate setFragmentResultListener — get result $result");
+            Log.d("SANHA", "MainFragment onCreate setFragmentResultListener — get result $result");
             Toast.makeText(context, "get : " + result, Toast.LENGTH_SHORT).show()
         }
     }
@@ -72,11 +75,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             .await()
     }
 
+
     private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
         if (model == null || modelView == null) {
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
             return
         }
+        // set text to 'result' from InputFragment
+        val v = modelView
+        val tv:TextView? = v?.view?.findViewById<TextView>(R.id.messageTextView)
 
         // Create the Anchor.
         scene.addChild(AnchorNode(hitResult.createAnchor()).apply {
@@ -91,6 +98,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     localPosition = Vector3(0.0f, 3f, 0.0f)
                     localScale = Vector3(10f, 10f, 10f)
                     renderable = modelView
+
+                    // Set Text to result
+                    if (tv!=null){
+                        tv.text = result
+                    }
+                    else{
+                        Log.d("SANHA", "MainFragment onTapPlane - tv is null")
+                    }
                 })
 //            })
         })
