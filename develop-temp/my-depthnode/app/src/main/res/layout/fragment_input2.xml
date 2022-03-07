@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/black"
+    android:orientation="vertical"
+    tools:context=".InputFragment">
+
+    <ImageButton
+        android:id="@+id/cancleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:contentDescription="cancleButton"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        tools:layout_editor_absoluteX="339dp"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:ems="10"
+        android:hint="Leave Message ..."
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <TextView
+        android:id="@+id/testTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="test text"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/teal_700"
+        android:text="Confirm"
+        android:textColorHighlight="#8BC34A"
+        android:textColorLink="#009688"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="381dp" />
+
+</LinearLayout>
