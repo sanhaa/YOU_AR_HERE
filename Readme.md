@@ -3,6 +3,20 @@
 
 <br>   
 
+### [기본 정보 및 개발 환경]  
+|  타입 |  내용  | 
+| ------ | ----- |
+| 프로그램 종류 | 안드로이드 애플리케이션 |
+| OS | Windows 10 |
+| 개발 도구 | Android Studio 3.1 |
+| 개발 언어 | Kotlin 1.5.30, Java 17.0.1 |
+| SDK API 버전 | Android 10.0 (Q) API 29 |
+| 오픈소스 라이브러리 | ARCore, Sceneform  |
+| 테스트 기기 | Galaxy S8 Android 9.0 (Pie) |
+
+
+<br>
+
 ### [차별화 기능]
 - depth 기반 방명록 배치
 - 각도에 따라 뭐를 달리할지
