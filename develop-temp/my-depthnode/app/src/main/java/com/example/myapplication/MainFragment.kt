@@ -75,7 +75,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             .await()
     }
 
-
     private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
         if (model == null || modelView == null) {
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
