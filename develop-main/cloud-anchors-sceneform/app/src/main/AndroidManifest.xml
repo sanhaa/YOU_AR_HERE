@@ -24,17 +24,20 @@
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.google.ar.core"
-            android:value="optional" />
+            android:value="required" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.ar.API_KEY"
+            android:value="AIzaSyABZAwXzsTegM-yOADwFsGluWrSYNoMJbo"/>
+
     </application>
 
 </manifest>
