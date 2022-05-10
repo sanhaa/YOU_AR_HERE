@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.maps.MapFragment
 import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
 import com.google.ar.sceneform.AnchorNode
@@ -25,8 +26,10 @@ import com.gorisse.thomas.sceneform.scene.await
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     val TAG = "SANA"
     var targetMsg = "this is target message"
+
     lateinit var btn_add: Button
     lateinit var btn_map: Button
+    lateinit var btn_memo: Button
 
     private lateinit var arFragment: ArFragment
     private val arSceneView get() = arFragment.arSceneView
@@ -38,24 +41,29 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        btn_memo = findViewById(R.id.memoButton)
+        btn_memo.setOnClickListener{
+            //supportFragmentManager.beginTransaction().replace(R.id.containerFragment, MainFragment()).addToBackStack(null).commit()
+        }
+
+        btn_map = findViewById(R.id.mapButton)
+        btn_map.setOnClickListener{
+            //supportFragmentManager.beginTransaction().replace(R.id.containerFragment, MapFragment()).addToBackStack(null).commit()
+        }
+
         btn_add = findViewById(R.id.addButton)
         btn_add.setOnClickListener{
             val dialog = InputDialog()
             dialog.setOkListener(this::onConfirmPressed)
             dialog.show(supportFragmentManager, "Message")
-
-//            supportFragmentManager.beginTransaction().replace(R.id.inputFragment, InputFragment()).addToBackStack(null).commit()
-        }
-
-        btn_map = findViewById(R.id.mapButton)
-        btn_map.setOnClickListener{
-
         }
     }
 
     fun onConfirmPressed(dialogVal: String) {
         targetMsg = dialogVal
-        arFragment = (supportFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
+        Log.d(TAG, "targetMsg = $targetMsg")
+
+        arFragment = (supportFragmentManager.findFragmentById(R.id.testArFragment) as ArFragment).apply {
             setOnSessionConfigurationListener { session, config ->
                 // Modify the AR session configuration here
             }

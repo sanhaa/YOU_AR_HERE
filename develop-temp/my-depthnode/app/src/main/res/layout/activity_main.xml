@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,73 +6,90 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <Button
-        android:id="@+id/memoButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_700"
-        android:layout_weight="5"
-        android:layout_marginHorizontal="3dp"
-        android:text= "memo" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/testArFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/memoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="7dp"
+            android:layout_weight="5"
+            android:backgroundTint="@color/teal_700"
+            android:text="memo" />
 
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/teal_700"
-            android:layout_weight="5"
-            android:layout_marginHorizontal="3dp"
-            android:text= "add" />
+            android:text="add" />
 
         <Button
             android:id="@+id/mapButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/teal_700"
+            android:layout_marginHorizontal="7dp"
             android:layout_weight="5"
-            android:layout_marginHorizontal="3dp"
+            android:backgroundTint="@color/teal_700"
             android:text="maps" />
     </LinearLayout>
 
     <!-- Memo가 나타나는 Main Fragment -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/testArFragment"
+        android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-<!--        <fragment-->
-<!--            android:name="com.example.myapplication.MainFragment"-->
-<!--            android:id="@+id/arFragment"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_weight="7"/>-->
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@+id/containerFragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
 
-<!--    map Fragment 따로-->
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/arFragment"-->
-<!--        android:name="com.google.ar.sceneform.ux.ArFragment"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp" />-->
+    <!--    <fragment-->
+    <!--        android:name="com.example.myapplication.MainFragment"-->
+    <!--        android:id="@+id/testArFragment"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp" />-->
 
-<!--    map-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
+    <!--    map Fragment 따로-->
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@+id/arFragment"-->
+    <!--        android:name="com.google.ar.sceneform.ux.ArFragment"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp" />-->
 
-<!--    <fragment-->
-<!--        android:name="com.google.codelabs.findnearbyplacesar.ar.PlacesArFragment"-->
-<!--        android:id="@+id/placeArFragment"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="7"/>-->
+    <!--    map-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:orientation="vertical">-->
 
-<!--&lt;!&ndash;    <fragment&ndash;&gt;-->
-<!--&lt;!&ndash;        class="com.google.android.gms.maps.SupportMapFragment"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/maps_fragment"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_weight="3"/>&ndash;&gt;-->
+    <!--    <fragment-->
+    <!--        android:name="com.google.codelabs.findnearbyplacesar.ar.PlacesArFragment"-->
+    <!--        android:id="@+id/placeArFragment"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_weight="7"/>-->
 
-<!--    </LinearLayout>-->
+    <!--&lt;!&ndash;    <fragment&ndash;&gt;-->
+    <!--&lt;!&ndash;        class="com.google.android.gms.maps.SupportMapFragment"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/maps_fragment"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_weight="3"/>&ndash;&gt;-->
 
-</RelativeLayout>
+    <!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

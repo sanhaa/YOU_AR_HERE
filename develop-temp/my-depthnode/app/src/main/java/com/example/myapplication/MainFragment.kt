@@ -1,31 +1,30 @@
 package com.example.myapplication
 
-
-//package com.example.myapplication
-//
-//import android.net.Uri
-//import android.os.Bundle
-//import android.util.Log
-//import android.view.MotionEvent
-//import android.view.View
-//import android.widget.TextView
-//import android.widget.Toast
+import android.net.Uri
+import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-//import androidx.lifecycle.lifecycleScope
-//import com.google.ar.core.HitResult
-//import com.google.ar.core.Plane
-//import com.google.ar.sceneform.AnchorNode
-//import com.google.ar.sceneform.Node
-//import com.google.ar.sceneform.SceneView
-//import com.google.ar.sceneform.math.Vector3
-//import com.google.ar.sceneform.rendering.ModelRenderable
-//import com.google.ar.sceneform.rendering.Renderable
-//import com.google.ar.sceneform.rendering.ViewRenderable
-//import com.google.ar.sceneform.ux.ArFragment
-//import com.gorisse.thomas.sceneform.scene.await
+import androidx.lifecycle.lifecycleScope
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
+import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Node
+import com.google.ar.sceneform.SceneView
+import com.google.ar.sceneform.math.Vector3
+import com.google.ar.sceneform.rendering.ModelRenderable
+import com.google.ar.sceneform.rendering.Renderable
+import com.google.ar.sceneform.rendering.ViewRenderable
+import com.google.ar.sceneform.ux.ArFragment
+import com.gorisse.thomas.sceneform.scene.await
 //
 class MainFragment : Fragment(R.layout.fragment_main) {
-//
+
+
 //    private lateinit var arFragment: ArFragment
 //    private val arSceneView get() = arFragment.arSceneView
 //    private val scene get() = arSceneView.scene
@@ -35,11 +34,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //
 //    private var result: String = "" // input Fragment에서 받은 값
 //
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        // Inputfragment가 보낸 데이터를 받기 위해
-//        // FragmentManager에서 리스너 API 호출
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Inputfragment가 보낸 데이터를 받기 위해
+        // FragmentManager에서 리스너 API 호출
 //        parentFragmentManager.setFragmentResultListener(
 //            "requestKey", this
 //        ) { key, bundle ->
@@ -49,10 +48,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            Log.d("SANHA", "MainFragment onCreate setFragmentResultListener — get result $result");
 //            Toast.makeText(context, "get : " + result, Toast.LENGTH_SHORT).show()
 //        }
-//    }
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
 //        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
 //            setOnSessionConfigurationListener { session, config ->
 //                // Modify the AR session configuration here
@@ -66,7 +65,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //        lifecycleScope.launchWhenCreated {
 //            loadModels()
 //        }
-//    }
+
+    }
 //
 //    private suspend fun loadModels() {
 //        model = ModelRenderable.builder()
