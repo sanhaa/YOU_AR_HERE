@@ -1,68 +1,78 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/containerFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
-        app:layout_constraintBottom_toTopOf="@+id/maps_fragment"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="wrap_content">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/inputFragment"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/memoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_700"
+        android:layout_weight="5"
+        android:layout_marginHorizontal="3dp"
+        android:text= "memo" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="624dp"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        android:popupTheme="@style/ThemeOverlay.MaterialComponents.ActionBar"
-        android:theme="@style/AppTheme.Toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:layout_weight="5"
+            android:layout_marginHorizontal="3dp"
+            android:text= "add" />
 
-    <ImageButton
-        android:id="@+id/addButton"
-        android:layout_width="63dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="addButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/containerFragment"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        <Button
+            android:id="@+id/mapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:layout_weight="5"
+            android:layout_marginHorizontal="3dp"
+            android:text="maps" />
+    </LinearLayout>
 
-    <fragment
-        android:id="@+id/maps_fragment"
-        class="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/containerFragment"
-        tools:layout_editor_absoluteX="0dp" />
+    <!-- Memo가 나타나는 Main Fragment -->
 
+<!--        <fragment-->
+<!--            android:name="com.example.myapplication.MainFragment"-->
+<!--            android:id="@+id/arFragment"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="7"/>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    map Fragment 따로-->
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/arFragment"-->
+<!--        android:name="com.google.ar.sceneform.ux.ArFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp" />-->
+
+<!--    map-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--    <fragment-->
+<!--        android:name="com.google.codelabs.findnearbyplacesar.ar.PlacesArFragment"-->
+<!--        android:id="@+id/placeArFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="7"/>-->
+
+<!--&lt;!&ndash;    <fragment&ndash;&gt;-->
+<!--&lt;!&ndash;        class="com.google.android.gms.maps.SupportMapFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/maps_fragment"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_weight="3"/>&ndash;&gt;-->
+
+<!--    </LinearLayout>-->
+
+</RelativeLayout>
