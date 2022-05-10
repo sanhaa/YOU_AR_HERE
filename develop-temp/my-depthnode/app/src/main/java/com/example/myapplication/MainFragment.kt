@@ -23,17 +23,18 @@ import com.google.ar.sceneform.ux.ArFragment
 import com.gorisse.thomas.sceneform.scene.await
 //
 class MainFragment : Fragment(R.layout.fragment_main) {
+    val TAG = "SANA"
 
+    lateinit var btn_add: Button
+    var targetMsg = "this is target message"
 
-//    private lateinit var arFragment: ArFragment
-//    private val arSceneView get() = arFragment.arSceneView
-//    private val scene get() = arSceneView.scene
-//
-//    private var model: Renderable? = null
-//    private var modelView: ViewRenderable? = null
-//
-//    private var result: String = "" // input Fragment에서 받은 값
-//
+    private lateinit var arFragment: ArFragment
+    private val arSceneView get() = arFragment.arSceneView
+    private val scene get() = arSceneView.scene
+
+    private var model: Renderable? = null
+    private var modelView: ViewRenderable? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,6 +53,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btn_add = view.findViewById(R.id.addButton)
+        btn_add.setOnClickListener{
+            val dialog = InputDialog()
+            dialog.setOkListener(this::onConfirmPressed)
+            dialog.show(childFragmentManager, "Message")
+        }
+
 //        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
 //            setOnSessionConfigurationListener { session, config ->
 //                // Modify the AR session configuration here
@@ -67,55 +75,74 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //        }
 
     }
-//
-//    private suspend fun loadModels() {
-//        model = ModelRenderable.builder()
-//            .setSource(context, Uri.parse("models/scene.gltf"))
-//            .setIsFilamentGltf(true)
-//            .await()
-//        modelView = ViewRenderable.builder()
-//            .setView(context, R.layout.view_renderable_infos)
-//            .await()
-//    }
-//
-//    private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
-//        if (model == null || modelView == null) {
-//            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
+
+    fun onConfirmPressed(dialogVal: String) {
+        targetMsg = dialogVal
+        Log.d(TAG, "targetMsg = $targetMsg")
+
+        Toast.makeText(context, "targetMsg = $targetMsg", Toast.LENGTH_LONG).show()
+
+        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
+            setOnSessionConfigurationListener { session, config ->
+                // Modify the AR session configuration here
+            }
+            setOnViewCreatedListener { arSceneView ->
+                arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL)
+            }
+            setOnTapArPlaneListener(::onTapPlane)
+        }
+        lifecycleScope.launchWhenCreated {
+            loadModels()
+        }
+    }
+
+    private suspend fun loadModels() {
+        model = ModelRenderable.builder()
+            .setSource(context, Uri.parse("models/scene.gltf"))
+            .setIsFilamentGltf(true)
+            .await()
+        modelView = ViewRenderable.builder()
+            .setView(context, R.layout.view_renderable_infos)
+            .await()
+    }
+
+    private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
+        if (model == null || modelView == null) {
+            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // tap 했을 때 input 하도록 하려면
 //        val dialog = InputDialog()
 //        dialog.setOkListener(this::onConfirmPressed)
 //        dialog.show(supportFragmentManager, "Resolving")
-//
-//        // set text to 'result' from InputFragment
-//        val v = modelView
-//        val tv:TextView? = v?.view?.findViewById<TextView>(R.id.messageTextView)
-//
-//        // Create the Anchor.
-//        scene.addChild(AnchorNode(hitResult.createAnchor()).apply {
-//            // Create the transformable model and add it to the anchor.
-////            addChild(TransformableNode(arFragment.transformationSystem).apply {
-//                localScale = Vector3(0.1f, 0.1f, 0.1f)
-//                renderable = model
-////                renderableInstance.animate(true).start()
-////                // Add the View11
-//                addChild(Node().apply {
-//                    // Define the relative position
-//                    localPosition = Vector3(0.0f, 3f, 0.0f)
-//                    localScale = Vector3(10f, 10f, 10f)
-//                    renderable = modelView
-//
-//                    // Set Text to result
-//                    if (tv!=null){
-//                        tv.text = result
-//                    }
-//                    else{
-//                        Log.d("SANHA", "MainFragment onTapPlane - tv is null")
-//                    }
-//                })
-////            })
-//        })
-//    }
-//
+
+        // set text to 'result' from InputFragment
+        val v = modelView
+        val tv:TextView? = v?.view?.findViewById<TextView>(R.id.messageTextView)
+
+        // Create the Anchor.
+        scene.addChild(AnchorNode(hitResult.createAnchor()).apply {
+            // Create the transformable model and add it to the anchor.
+//            addChild(TransformableNode(arFragment.transformationSystem).apply {
+                localScale = Vector3(0.1f, 0.1f, 0.1f)
+                renderable = model
+//                renderableInstance.animate(true).start()
+//                // Add the View11
+                addChild(Node().apply {
+                    // Define the relative position
+                    localPosition = Vector3(0.0f, 3f, 0.0f)
+                    localScale = Vector3(10f, 10f, 10f)
+                    renderable = modelView
+
+                    if (tv!=null){
+                        tv.text = targetMsg
+                    }
+                    else{
+                        Log.d("SANHA", "MainFragment onTapPlane - tv is null")
+                    }
+                })
+//            })
+        })
+    }
 }

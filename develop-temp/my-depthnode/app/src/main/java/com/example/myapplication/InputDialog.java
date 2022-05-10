@@ -35,7 +35,7 @@ public class InputDialog extends DialogFragment {
         messageField.setInputType(InputType.TYPE_CLASS_TEXT);
         messageField.setLayoutParams(
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        messageField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+        messageField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30)});
         layout.addView(messageField);
         layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         return layout;
