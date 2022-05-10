@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.net.Uri
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
@@ -26,6 +27,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     val TAG = "SANA"
 
     lateinit var btn_add: Button
+    lateinit var dialog : InputDialog
     var targetMsg = "this is target message"
 
     private lateinit var arFragment: ArFragment
@@ -38,42 +40,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inputfragment가 보낸 데이터를 받기 위해
-        // FragmentManager에서 리스너 API 호출
-//        parentFragmentManager.setFragmentResultListener(
-//            "requestKey", this
-//        ) { key, bundle ->
-//            // We use a String here, but any type that can be put in a Bundle is supported
-//            result = bundle.getString("bundleKey")!!
-//            // Do something with the result...
-//            Log.d("SANHA", "MainFragment onCreate setFragmentResultListener — get result $result");
-//            Toast.makeText(context, "get : " + result, Toast.LENGTH_SHORT).show()
-//        }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dialog = InputDialog()
+        dialog.setOkListener(this::onConfirmPressed)
+
         btn_add = view.findViewById(R.id.addButton)
         btn_add.setOnClickListener{
-            val dialog = InputDialog()
-            dialog.setOkListener(this::onConfirmPressed)
             dialog.show(childFragmentManager, "Message")
         }
-
-//        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
-//            setOnSessionConfigurationListener { session, config ->
-//                // Modify the AR session configuration here
-//            }
-//            setOnViewCreatedListener { arSceneView ->
-//                arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL)
-//            }
-//            setOnTapArPlaneListener(::onTapPlane)
-//        }
-//
-//        lifecycleScope.launchWhenCreated {
-//            loadModels()
-//        }
-
     }
 
     fun onConfirmPressed(dialogVal: String) {
@@ -111,11 +88,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
             return
         }
-
-        // tap 했을 때 input 하도록 하려면
-//        val dialog = InputDialog()
-//        dialog.setOkListener(this::onConfirmPressed)
-//        dialog.show(supportFragmentManager, "Resolving")
 
         // set text to 'result' from InputFragment
         val v = modelView
