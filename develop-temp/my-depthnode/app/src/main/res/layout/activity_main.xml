@@ -7,33 +7,37 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_marginTop="20dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/containerFragment"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/memoButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
-            android:layout_weight="5"
+            android:layout_marginVertical="10dp"
             android:backgroundTint="@color/teal_700"
-            android:text="memo" />
-
+            android:text="memo"
+            android:textSize="20dp" />
 
 
         <Button
             android:id="@+id/mapButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
-            android:layout_weight="5"
+            android:layout_marginVertical="10dp"
             android:backgroundTint="@color/teal_700"
-            android:text="maps" />
+            android:text="maps"
+
+            android:textSize="20dp" />
     </LinearLayout>
 
     <!-- Memo가 나타나는 Main Fragment -->
@@ -47,14 +51,14 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/containerFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@+id/containerFragment"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/linearLayout" />-->
 
     <!--    map Fragment 따로-->
     <!--    <androidx.fragment.app.FragmentContainerView-->

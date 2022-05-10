@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.ar.core.HitResult
@@ -23,7 +24,7 @@ import com.google.ar.sceneform.rendering.ViewRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.gorisse.thomas.sceneform.scene.await
 //
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MemoActivity : AppCompatActivity(R.layout.fragment_main) {
     val TAG = "SANA"
 
     lateinit var btn_add: Button
@@ -40,16 +41,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         dialog = InputDialog()
         dialog.setOkListener(this::onConfirmPressed)
 
-        btn_add = view.findViewById(R.id.addButton)
+        btn_add = findViewById(R.id.addButton)
         btn_add.setOnClickListener{
-            dialog.show(childFragmentManager, "Message")
+            dialog.show(supportFragmentManager, "Message")
         }
     }
 
@@ -57,9 +54,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         targetMsg = dialogVal
         Log.d(TAG, "targetMsg = $targetMsg")
 
-        Toast.makeText(context, "targetMsg = $targetMsg", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "targetMsg = $targetMsg", Toast.LENGTH_LONG).show()
 
-        arFragment = (childFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
+        arFragment = (supportFragmentManager.findFragmentById(R.id.arFragment) as ArFragment).apply {
             setOnSessionConfigurationListener { session, config ->
                 // Modify the AR session configuration here
             }
@@ -75,17 +72,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private suspend fun loadModels() {
         model = ModelRenderable.builder()
-            .setSource(context, Uri.parse("models/scene.gltf"))
+            .setSource(this, Uri.parse("models/scene.gltf"))
             .setIsFilamentGltf(true)
             .await()
         modelView = ViewRenderable.builder()
-            .setView(context, R.layout.view_renderable_infos)
+            .setView(this, R.layout.view_renderable_infos)
             .await()
     }
 
     private fun onTapPlane(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
         if (model == null || modelView == null) {
-            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()
             return
         }
 
