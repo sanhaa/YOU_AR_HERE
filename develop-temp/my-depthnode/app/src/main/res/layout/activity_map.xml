@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MapActivity">
 
         <fragment android:name="com.google.codelabs.findnearbyplacesar.ar.PlacesArFragment"
             android:id="@+id/mapArFragment"

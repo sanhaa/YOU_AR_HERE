@@ -2,15 +2,12 @@ package com.example.myapplication
 
 import android.net.Uri
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import android.util.Log
 import android.view.MotionEvent
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
@@ -24,7 +21,7 @@ import com.google.ar.sceneform.rendering.ViewRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.gorisse.thomas.sceneform.scene.await
 //
-class MemoActivity : AppCompatActivity(R.layout.fragment_main) {
+class MemoActivity : AppCompatActivity(R.layout.activity_memo) {
     val TAG = "SANA"
 
     lateinit var btn_add: Button

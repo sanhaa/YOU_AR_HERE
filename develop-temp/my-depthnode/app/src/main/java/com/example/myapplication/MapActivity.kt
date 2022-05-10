@@ -28,9 +28,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.getSystemService
-import androidx.fragment.app.Fragment
 import com.example.myapplication.api.PlacesService
 import com.example.myapplication.ar.PlaceNode
 import com.example.myapplication.model.Place
@@ -83,7 +81,7 @@ class MapActivity : AppCompatActivity(), SensorEventListener {
         if (!isSupportedDevice()) {
             return
         }
-        setContentView(R.layout.fragment_map)
+        setContentView(R.layout.activity_map)
 
         arFragment = supportFragmentManager.findFragmentById(R.id.mapArFragment) as PlacesArFragment
         mapFragment =
