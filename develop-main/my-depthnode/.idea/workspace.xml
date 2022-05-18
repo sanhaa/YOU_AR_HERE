@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="61d13e10-29ca-4691-8640-74f3ca155239" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud-anchors-sceneform/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/InputFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/InputFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/api/NearbyPlacesResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/api/PlacesService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/ar/PlaceNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/ar/PlacesArFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/java/com/example/myapplication/model/Place.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/app/src/main/res/layout/place_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/anchor.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/anchor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/andy.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/andy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/andy_shadow.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/andy_shadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/andy_spec.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/ear_fur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/forehead_left.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/forehead_right.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/freckles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/map_quality_bar.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/map_quality_bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/nose.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/nose_fur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/models/trigrid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/ar_object.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/ar_object.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/background_show_depth_color_visualization.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/background_show_depth_color_visualization.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/object.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/object.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/plane.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/plane.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/point_cloud.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/point_cloud.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/screenquad.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/assets/shaders/screenquad.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/cloudanchor/CloudAnchorActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/cloudanchor/CloudAnchorManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/cloudanchor/FirebaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/cloudanchor/PrivacyNoticeDialogFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/cloudanchor/ResolveDialogFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/CameraPermissionHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/DepthSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/DisplayRotationHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/FullScreenHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/InstantPlacementSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/SnackbarHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/helpers/TrackingStateHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/rendering/BackgroundRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/rendering/ObjectRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/rendering/PlaneRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/rendering/PointCloudRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/java/com/google/ar/core/examples/java/common/rendering/ShaderUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/drawable-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/drawable/button_bg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/drawable/dialog_bg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/layout/resolve_dialog.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/cloudanchors/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud-anchors-sceneform/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud-anchors-sceneform/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/java/com/example/myapplication/InputFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/java/com/example/myapplication/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/java/com/example/myapplication/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/java/com/example/myapplication/MainFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/java/com/example/myapplication/MainFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/res/layout/view_renderable_infos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../develop-temp/my-depthnode/app/src/main/res/layout/view_renderable_infos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../devlog/22.4-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../devlog/22.4-3.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="28xBrMl7UbHu1jWnGoHCvYqBZla" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cloud-anchors-sceneform" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61d13e10-29ca-4691-8640-74f3ca155239" name="Default Changelist" comment="" />
+      <created>1652148554310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652148554310</updated>
+    </task>
+    <servers />
+  </component>
+</project>

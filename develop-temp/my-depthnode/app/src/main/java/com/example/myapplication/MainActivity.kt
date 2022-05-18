@@ -1,42 +1,36 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import com.google.ar.sceneform.ux.ArFragment
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    lateinit var msgBtn: ImageButton
-    var targetMsg = "this is target message"
+    lateinit var btn_map: Button
+    lateinit var btn_memo: Button
+
+    private lateinit var arFragment: ArFragment
+    private val arSceneView get() = arFragment.arSceneView
+    private val scene get() = arSceneView.scene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(findViewById<Toolbar>(R.id.toolbar).apply {
-            title = "application"
-        })
-
-        supportFragmentManager.beginTransaction().replace(R.id.containerFragment, MainFragment()).commit()
-
-        msgBtn = findViewById<ImageButton>(R.id.addButton)
-        msgBtn.setOnClickListener{
-//            val nextIntent = Intent(this, InputFragment::class.java)
-//            startActivity(nextIntent)
-            supportFragmentManager.beginTransaction().replace(R.id.inputFragment, InputFragment()).addToBackStack(null).commit()
+        btn_memo = findViewById(R.id.memoButton)
+        btn_memo.setOnClickListener{
+            val intent = Intent(this, MemoActivity::class.java)
+            startActivity(intent)
+            //supportFragmentManager.beginTransaction().replace(R.id.containerFragment, MainFragment()).addToBackStack(null).commit()
         }
 
-//        if (intent.hasExtra("message")){
-//            val txt = intent.getStringExtra("message")
-////            renderableTxt.setText(txt)
-//            Toast.makeText(this, "전달 받음: "+txt, Toast.LENGTH_SHORT).show()
-//        }
-
-//        supportFragmentManager.commit {
-//            add(R.id.containerFragment, MainFragment::class.java, Bundle())
-//        }
-
+        btn_map = findViewById(R.id.mapButton)
+        btn_map.setOnClickListener{
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+            //supportFragmentManager.beginTransaction().replace(R.id.containerFragment, MapFragment()).addToBackStack(null).commit()
+        }
     }
-
 }
+
+

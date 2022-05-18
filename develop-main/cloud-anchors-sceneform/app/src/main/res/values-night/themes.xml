@@ -1,0 +1,21 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/translucent</item>
+        <item name="colorAccent">@color/translucent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+<!--    <style name="Theme.SceneViewSample.Toolbar" parent="ThemeOverlay.MaterialComponents.ActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="android:background">@android:color/transparent</item>-->
+<!--        <item name="android:textColor">@android:color/white</item>-->
+<!--        <item name="logo">@drawable/sceneview_logo</item>-->
+<!--    </style>-->
+</resources>
