@@ -3,6 +3,38 @@
 
 <br>   
 
+### 실행 예시
+1. 메인 화면
+    - 방명록을 남길 수 있는 기능(MEMO 버튼)과 주변 관광지를 보여주는 기능(MAP) 두 가지로 나뉜다.   
+        <div>
+        <img src="https://user-images.githubusercontent.com/26539591/169676663-270ae46b-8731-4fa2-b989-ee841080fec5.jpg" width="30%"/>
+        </div>
+
+
+2. 방명록 기능 (MEMO 버튼 클릭 시)
+    - 주변 평면을 인식하고 평면이 인식되면 흰색 점들로 표시된다.  
+        <div text-align="center">
+        <img src="https://user-images.githubusercontent.com/26539591/169676666-36af1a5a-d50c-455c-9778-16a198bc7a95.jpg" width="30%"/> 
+          <img src="https://user-images.githubusercontent.com/26539591/169676667-fa1d9285-91f2-4365-95e4-01d4104451b0.jpg" width="30%"/> 
+        </div>
+    
+    - `ADD` 버튼을 누르면 메세지를 입력할 수 있는 창이 뜨고, 원하는 내용을 입력한 후 평면을 터치하면 해당 자리에 3D 방명록이 렌더링된다.
+        <div text-align="center">
+          <img src="https://user-images.githubusercontent.com/26539591/169676672-8ce7bde8-7b45-4667-b672-3cf7394b314a.jpg" width="30%"/>
+          <img src="https://user-images.githubusercontent.com/26539591/169676674-f24cb6cd-cbf6-4914-ab4e-3580ac1a5a8b.jpg" width="30%"/>
+        </div>
+    
+3. 주변 관광지 AR 표시 기능 (MAP 버튼 클릭 시)
+    - 현재 위치를 기준으로 특정 반경 이내의 특정 장소들을 검색하고 지도와 AR view에 나타낸다.
+    - 설정된 반경: `2km`, 장소 카테고리: `park`  
+     
+        <div text-align="center">
+          <img src="https://user-images.githubusercontent.com/26539591/169676680-7c6d4362-f4bc-469f-96ef-5a9b3f263f22.jpg" width="30%"/>
+          <img src="https://user-images.githubusercontent.com/26539591/169676681-fe5ffb09-7c53-4f7a-90f5-761890e80d84.jpg" width="30%"/>
+        </div>
+
+                                                                                                                     
+                                                                                                                     
 ### [기본 정보 및 개발 환경]  
 |  타입 |  내용  | 
 | ------ | ----- |
